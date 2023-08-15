@@ -72,6 +72,7 @@ jobs:
           ECR_REPOSITORY: ${{ github.repository }}
           IMAGE_TAG: ${{ env.IMAGE_TAG }}
         run: |
+          ECR_REPOSITORY=$(echo $ECR_REPOSITORY|awk '{print tolower($0)}')
           echo REGISTRY: $REGISTRY
           echo ECR_REPOSITORY: $ECR_REPOSITORY
           echo IMAGE_TAG: $IMAGE_TAG
